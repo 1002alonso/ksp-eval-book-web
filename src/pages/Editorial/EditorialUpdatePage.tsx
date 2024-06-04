@@ -10,7 +10,6 @@ const EditorialUpdatePage =()=>{
     const location = useLocation();
     const dataEditorial:IEditorial =location.state;
 
-    console.log(dataEditorial)
     return (
         <Row>
         <Col>

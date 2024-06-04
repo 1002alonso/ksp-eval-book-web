@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { Card, CardTitle, Col, Row, CardBody, Form, FormGroup, Label, Input, FormText, Button } from 'reactstrap';
 import { TEXT_FORM } from "../../shared/constant/textForm";
-import { Link } from 'react-router-dom';
 import { IEditorial } from '../../shared/interface/responseRequestEditorialService';
 import EditorialForm from './EditorialForm';
 
 const textForm = TEXT_FORM["formEditorial"];
-const textGeneric = TEXT_FORM["formGeneric"];
+
 
 const EditorialCrearPage = ({}) => {
 
