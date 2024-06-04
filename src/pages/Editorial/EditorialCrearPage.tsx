@@ -21,7 +21,7 @@ nuevaEditorial.nombre="";
         <Card>
           <CardTitle tag="h4" className="border-bottom p-3 mb-0">
             <i className="bi bi-bell me-2"> </i>
-            {textForm.titleForm}
+            {textForm.titleFormEditar}
           </CardTitle>
           <CardBody>
           <EditorialForm createEditorial={true} editorialData={nuevaEditorial}></EditorialForm>
