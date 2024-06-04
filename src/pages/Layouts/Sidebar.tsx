@@ -19,7 +19,7 @@ const navigation = [
     },
     {
       title: "Usuarios",
-      href: "/usuario-libro",
+      href: "/usuario-biblioteca",
       icon: "bi bi-people",
     },
     {

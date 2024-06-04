@@ -66,7 +66,7 @@ const EditorialPage = () => {
             <Row>
                 <Col lg="12">
                     <Card>
-                        <CardTitle tag="h6" className="border-bottom p-3 mb-0">
+                        <CardTitle tag="h3" className="border-bottom p-3 mb-0">
                             {textForm.titleCardEditorial}
                         </CardTitle>
 

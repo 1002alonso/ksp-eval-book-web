@@ -49,16 +49,16 @@ const EditorialForm:React.FC<IEditorialProps> = (props:IEditorialProps) => {
         navigate('/editorial');
       };
 
-      const createEditorial = async (nuevaEditorial:IEditorial) => {
-        serviceEditorial.postEditorialCreate(nuevaEditorial).subscribe({
-            next: (getEditoriale: IEditorial | ResponseDefaultError) => {
-             
-            },
-            error: (_error: any) => { },
-            complete: () => { },
-        });
-      
-    };
+  const createEditorial = async (nuevaEditorial: IEditorial) => {
+    serviceEditorial.postEditorialCreate(nuevaEditorial).subscribe({
+      next: (getEditoriale: IEditorial | ResponseDefaultError) => {
+
+      },
+      error: (_error: any) => { },
+      complete: () => { },
+    });
+
+  };
 
     const updateEditorial = async (id:string , editarEditorial:IEditorial )=>{
         serviceEditorial.putEditorialUpdate(id, editarEditorial).subscribe({
