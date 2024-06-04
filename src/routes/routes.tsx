@@ -10,6 +10,8 @@ import EditorialCrearPage from "../pages/Editorial/EditorialCrearPage";
 import EditorialUpdatePage from "../pages/Editorial/EditorialUpdatePage";
 import UsuarioLibroCrearPage from "../pages/UsuarioLibro/UsuarioLibroCrearPage";
 import UsuarioLibroUpdatePage from "../pages/UsuarioLibro/UsuarioLibroUpdatePage";
+import LibroCrearPage from "../pages/Libro/LibroCrearPage";
+import LibroUpdatePage from "../pages/Libro/LibroUpdatePage";
 
 function AppRoute() {
     return (
@@ -19,6 +21,8 @@ function AppRoute() {
                     <Route index element={<HomePage />} />
                     <Route path="/home" element={<HomePage />} />
                     <Route path="/libro" element={<LibroPage />} />
+                    <Route path="/libro/crear" element={<LibroCrearPage />} />
+                    <Route path="/libro/editar" element={<LibroUpdatePage />} />
                     <Route path="/prestamo" element={<PrestamoPage />} />
                     <Route path="/editorial" element={<EditorialPage />} />
                     <Route path="/editorial/crear" element={<EditorialCrearPage />} />
