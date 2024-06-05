@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Row, Col, Table, Card, CardTitle, CardBody,CardSubtitle } from "reactstrap";
+import { TEXT_FORM } from '../../shared/constant/textForm';
+import { serviceUsuarioLibro } from '../../services/usuarioLibroService';
+
+
 import user1 from "../../assets/images/users/user1.jpg";
 import user2 from "../../assets/images/users/user2.jpg";
 import user3 from "../../assets/images/users/user3.jpg";
 import user4 from "../../assets/images/users/user4.jpg";
 import user5 from "../../assets/images/users/user5.jpg";
+import { IUsuarioLibro } from '../../shared/interface/responseRequestUserLibroService';
+import { ResponseDefaultError } from '../../shared/interface/responseService';
+import { Link } from 'react-router-dom';
 
-
+const listAvatar =[user1,user2,user3,user4,user5];
 const tableData = [
     {
       avatar: user1,
@@ -56,6 +63,28 @@ const tableData = [
   ];
 
 const HomePage = () => {
+  const textForm = TEXT_FORM["formUsuarioLibro"];
+  const textGeneric = TEXT_FORM["formGeneric"];
+  const textPrestamo = TEXT_FORM["formPrestamo"];
+  const [listUsuarioLibro, setUsuarioLibro] = useState(Array<IUsuarioLibro>);
+ 
+  const getUsuarioLibrosAll = async () => {
+    serviceUsuarioLibro.getUsuarioLibroReadAll().subscribe({
+        next: (getListUsuarioLibro: Array<IUsuarioLibro> | ResponseDefaultError) => {
+            if (Array.isArray(getListUsuarioLibro)) {
+                setUsuarioLibro(getListUsuarioLibro);
+            }
+
+        },
+        error: (_error: any) => { },
+        complete: () => { },
+    });
+}
+
+useEffect(() => {
+  getUsuarioLibrosAll();
+}, []);
+
     return (
 
         <Row>
@@ -63,52 +92,53 @@ const HomePage = () => {
              <div>
       <Card>
         <CardBody>
-          <CardTitle tag="h5">Project Listing</CardTitle>
+          <CardTitle tag="h5">{textPrestamo.titleHome}</CardTitle>
           <CardSubtitle className="mb-2 text-muted" tag="h6">
-            Overview of the projects
+           {textPrestamo.titleSistema}
           </CardSubtitle>
 
           <Table className="no-wrap mt-3 align-middle" responsive borderless>
             <thead>
               <tr>
-                <th>Team Lead</th>
-                <th>Project</th>
+                <th></th>
+                <th>{textForm.titleCrudClave}</th>
 
-                <th>Status</th>
-                <th>Weeks</th>
-                <th>Budget</th>
+                <th>{textForm.titleCrudUsuarioLibro}</th>
+                <th>{textGeneric.titleCrudAccion}</th>
+              
               </tr>
             </thead>
             <tbody>
-              {tableData.map((tdata, index) => (
+              {listUsuarioLibro.map((item, index) => (
                 <tr key={index} className="border-top">
                   <td>
                     <div className="d-flex align-items-center p-2">
                       <img
-                        src={tdata.avatar}
+                        src={listAvatar[Math.floor(Math.random() * listAvatar.length)]}
                         className="rounded-circle"
                         alt="avatar"
                         width="45"
                         height="45"
                       />
-                      <div className="ms-3">
-                        <h6 className="mb-0">{tdata.name}</h6>
-                        <span className="text-muted">{tdata.email}</span>
-                      </div>
+                    
                     </div>
                   </td>
-                  <td>{tdata.project}</td>
+                  <td>{item.claveUsuario}</td>
                   <td>
-                    {tdata.status === "pending" ? (
-                      <span className="p-2 bg-danger rounded-circle d-inline-block ms-3"></span>
-                    ) : tdata.status === "holt" ? (
-                      <span className="p-2 bg-warning rounded-circle d-inline-block ms-3"></span>
-                    ) : (
-                      <span className="p-2 bg-success rounded-circle d-inline-block ms-3"></span>
-                    )}
+                  {item.nombre}
                   </td>
-                  <td>{tdata.weeks}</td>
-                  <td>{tdata.budget}</td>
+                  <td>
+                    <div className="button-group">
+
+                      <Link to={textPrestamo.urlPrestamoLibro} state={item} className="btn btn btn-outline-info" color="success">
+                        {textGeneric.btnTextPrestamo}
+                      </Link>
+
+                    
+                    </div>
+
+                  </td>
+            
                 </tr>
               ))}
             </tbody>

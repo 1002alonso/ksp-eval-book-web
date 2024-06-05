@@ -50,12 +50,12 @@ const EditorialPage = () => {
         setModal(false);
         serviceEditorial.deleteEditorialDelete(id).subscribe({
             next: (getEditorial: ResponseDefaultError) => {
-                navigate('/editorial');
                
+                getEditorialesAll();
             },
             error: (_error: any) => { },
             complete: () => {
-                navigate('/editorial');
+                
              },
         });
     }

@@ -8,11 +8,6 @@ const navigation = [
       icon: "bi bi-house",
     },
     {
-      title: "Prestamo",
-      href: "/prestamo",
-      icon: "bi bi-journal-check",
-    },
-    {
       title: "Libros",
       href: "/libro",
       icon: "bi bi-book",

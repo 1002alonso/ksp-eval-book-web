@@ -1,11 +1,15 @@
 import {Observable} from "rxjs";
 import { ResponseDefaultError } from "../shared/interface/responseService";
 import { ILibro } from "../shared/interface/responseRequestLibroService";
+import { TEXT_FORM } from '../shared/constant/textForm';
+
+const textAPI = TEXT_FORM["api"];
+
 
 class libroService{
     getLibroReadAll(): Observable<Array<ILibro> | ResponseDefaultError>{
         return new Observable <Array<ILibro> | ResponseDefaultError>(objerver =>{
-            fetch("https://localhost:7235/control-biblioteca/libro",{})
+            fetch(`${textAPI.localhost}/control-biblioteca/libro`,{})
             .then(response => response.json())
             .then (data =>{
                 objerver.next(data);
@@ -17,7 +21,7 @@ class libroService{
 
     postLibroCreate(nuevoLibro:ILibro): Observable<ILibro | ResponseDefaultError>{
         return new Observable <ILibro | ResponseDefaultError>(objerver =>{
-            fetch("https://localhost:7235/control-biblioteca/libro",{
+            fetch(`${textAPI.localhost}/control-biblioteca/libro`,{
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -35,7 +39,7 @@ class libroService{
 
     putLibroUpdate(id:string, updateLibro:ILibro): Observable<ResponseDefaultError>{
         return new Observable <ResponseDefaultError>(objerver =>{
-            fetch("https://localhost:7235/control-biblioteca/libro"+ `/${id}`,{
+            fetch(`${textAPI.localhost}/control-biblioteca/libro`+ `/${id}`,{
                 method: "PUT",
                 headers: {
                     'Content-Type': 'application/json',
@@ -53,7 +57,7 @@ class libroService{
 
     deleteLibroDelete(id:string): Observable<ResponseDefaultError>{
         return new Observable <ResponseDefaultError>(objerver =>{
-            fetch("https://localhost:7235/control-biblioteca/libro"+ `/${id}`,{
+            fetch(`${textAPI.localhost}/control-biblioteca/libro`+ `/${id}`,{
                 method: "DELETE",
             })
             .then(response => response.json())
