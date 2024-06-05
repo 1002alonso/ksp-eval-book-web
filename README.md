@@ -1,46 +1,71 @@
-# Getting Started with Create React App
+# KSP-EVAL-BOOK-WEB
+# Proyecto React  18
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ksp-eval-book-web esta desarrollado con React 18. El propósito de este proyecto es evaluar los conocimientos en front-end con React empleando componentes, hook, variables de estados y ciclos de vida de los componentes
 
-## Available Scripts
+## Contenido
 
-In the project directory, you can run:
+- [Requisitos](#requisitos)
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Pruebas](#pruebas)
 
-### `npm start`
+## Requisitos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Node.js](https://nodejs.org/) (v14.0.0 o superior)
+- [npm](https://www.npmjs.com/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Instalación
 
-### `npm test`
+1. Clona el repositorio:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    ```bash
+    git clone https://github.com/1002alonso/ksp-eval-book-web.git de la rama development
+    cd tu-repositorio
+    ```
 
-### `npm run build`
+2. Instala las dependencias:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    ```bash
+    npm install
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Configura la Api Rest:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    - Inicializar o identificar el servidor de la api
+    - Si es https://localhost:7235 se modificara en el archivo textForm.ts en las llaves api|localhost
+    - La ruta de este archivo es src/shared/constant
 
-### `npm run eject`
+## Uso
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Para iniciar la aplicación, usa el siguiente comando:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```bash
+    npm start
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Estructura del Proyecto
+```
+KSP-EVAL-BOOK-WEB
+│
+├── /public            # Archivos públicos estáticos
+├── /src
+│   ├── /components    # Componentes React
+│   ├── /pages         # Páginas del proyecto
+│   ├── /styles        # Archivos de estilos (CSS, SASS, etc.)
+│   ├── /utils         # Utilidades y helpers
+│   ├── App.js         # Componente principal
+│   ├── index.js       # Punto de entrada de React
+│   └── index.css      # Estilos globales
+├── .gitignore         # Archivos y directorios ignorados por Git
+├── package.json       # Dependencias y scripts del proyecto
+└── README.md          # Documentación del proyecto
+```       
+  
+## Pruebas
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+npm test
+```
