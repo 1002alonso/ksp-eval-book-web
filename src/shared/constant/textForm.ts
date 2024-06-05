@@ -75,13 +75,27 @@ export const TEXT_FORM ={
         titleCardLibro:"Libros",
         msgEliminarEditorial:"Desea eliminar la editorial? "
     },
+    formPrestamo:{
+        titleHome:"Administrador Prestamo Libros",
+        titleSistema:"Sistema Control de Libros",
+        titleCardPrestamo:"Prestamo Libros",
+        titleLibrosPrestamo:"Libros Prestados",
+        titleSeleccionarLibros:"Seleccionar Libros",
+        textMensaje:"El libro fue devuelto con exito!",
+        urlPrestamoLibro:"/prestamo"
+    },
     formGeneric:{
         btnTextEnviar:"Enviar",
         btnTextCancelar:"Cancelar",
         btnTextActualizar:"Actualizar",
+        btnTextPrestamo:"Prestamo",
+        btnTextDevolucion:"Devolucion",
         btnTextEliminar:"Eliminar",
         titleCrudAccion:"Acción",
         btnTextCerrar:"Cerrar",
         msgDatosNulos:"Los datos no pueden ser nullos",
+    },
+    api:{
+        localhost:"https://localhost:7235"
     }
 }

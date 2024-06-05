@@ -1,13 +1,15 @@
 import {Observable} from "rxjs";
 import { ResponseDefaultError } from "../shared/interface/responseService";
 import { IUsuarioLibro } from "../shared/interface/responseRequestUserLibroService";
+import { TEXT_FORM } from '../shared/constant/textForm';
 
+const textAPI = TEXT_FORM["api"];
 
 class usuarioLibroService{
 
     getUsuarioLibroReadAll(): Observable<Array<IUsuarioLibro> | ResponseDefaultError>{
         return new Observable <Array<IUsuarioLibro> | ResponseDefaultError>(objerver =>{
-            fetch("https://localhost:7235/control-biblioteca/usuario-libro",{})
+            fetch(`${textAPI.localhost}/control-biblioteca/usuario-libro`,{})
             .then(response => response.json())
             .then (data =>{
                 objerver.next(data);
@@ -19,7 +21,7 @@ class usuarioLibroService{
 
     postUsuarioLibroCreate(nuevoUsuarioLibro:IUsuarioLibro): Observable<IUsuarioLibro | ResponseDefaultError>{
         return new Observable <IUsuarioLibro | ResponseDefaultError>(objerver =>{
-            fetch("https://localhost:7235/control-biblioteca/usuario-libro",{
+            fetch(`${textAPI.localhost}/control-biblioteca/usuario-libro`,{
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -37,7 +39,7 @@ class usuarioLibroService{
 
     putUsuarioLibroUpdate(id:string, updateUsuarioLibro:IUsuarioLibro): Observable<ResponseDefaultError>{
         return new Observable <ResponseDefaultError>(objerver =>{
-            fetch("https://localhost:7235/control-biblioteca/usuario-libro"+ `/${id}`,{
+            fetch(`${textAPI.localhost}/control-biblioteca/usuario-libro`+ `/${id}`,{
                 method: "PUT",
                 headers: {
                     'Content-Type': 'application/json',
@@ -55,7 +57,7 @@ class usuarioLibroService{
 
     deleteUsuarioLibroDelete(id:string): Observable<ResponseDefaultError>{
         return new Observable <ResponseDefaultError>(objerver =>{
-            fetch("https://localhost:7235/control-biblioteca/usuario-libro"+ `/${id}`,{
+            fetch(`${textAPI.localhost}/control-biblioteca/usuario-libro`+ `/${id}`,{
                 method: "DELETE",
             })
             .then(response => response.json())

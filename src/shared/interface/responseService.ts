@@ -1,6 +1,8 @@
 export interface ResponseDefaultError{
+    title: string;
     error: string;
-    message:string;
+    mesage:string;
+    timestap:string;
     code:string;
     details:string;
     location:string;

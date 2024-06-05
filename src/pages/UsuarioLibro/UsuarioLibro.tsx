@@ -52,12 +52,12 @@ const UsuarioLibroPage = () => {
         setModal(false);
         serviceUsuarioLibro.deleteUsuarioLibroDelete(id).subscribe({
             next: (getEditorial: ResponseDefaultError) => {
-                navigate(textForm.urlCrudHomeUsuarioLibro);
+                getUsuarioLibrosAll();
                
             },
             error: (_error: any) => { },
             complete: () => {
-                navigate(textForm.urlCrudHomeUsuarioLibro);
+                getUsuarioLibrosAll();
              },
         });
     }

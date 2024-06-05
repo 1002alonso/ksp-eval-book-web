@@ -48,12 +48,12 @@ const LibroPage = () => {
         setModal(false);
         serviceLibro.deleteLibroDelete(id).subscribe({
             next: (getEditorial: ResponseDefaultError) => {
-                navigate(textForm.urlCrudHomeLibro);
+               getLibrosAll();
                
             },
             error: (_error: any) => { },
             complete: () => {
-                navigate(textForm.urlCrudHomeLibro);
+               getLibrosAll();
              },
         });
     }

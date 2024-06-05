@@ -2,10 +2,14 @@ import {Observable} from "rxjs";
 import { ResponseDefaultError } from "../shared/interface/responseService";
 import { IEditorial } from "../shared/interface/responseRequestEditorialService";
 
+import { TEXT_FORM } from '../shared/constant/textForm';
+
+const textAPI = TEXT_FORM["api"];
+
 class bookEditorialService{
     getEditorialReadAll(): Observable<Array<IEditorial> | ResponseDefaultError>{
         return new Observable <Array<IEditorial> | ResponseDefaultError>(objerver =>{
-            fetch("https://localhost:7235/control-biblioteca/editorial",{})
+            fetch(`${textAPI.localhost}/control-biblioteca/editorial`,{})
             .then(response => response.json())
             .then (data =>{
                 objerver.next(data);
@@ -17,7 +21,7 @@ class bookEditorialService{
 
     postEditorialCreate(nuevaEdidorial:IEditorial): Observable<IEditorial | ResponseDefaultError>{
         return new Observable <IEditorial | ResponseDefaultError>(objerver =>{
-            fetch("https://localhost:7235/control-biblioteca/editorial",{
+            fetch(`${textAPI.localhost}/control-biblioteca/editorial`,{
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -35,7 +39,7 @@ class bookEditorialService{
 
     putEditorialUpdate(id:string, updateEdidorial:IEditorial): Observable<ResponseDefaultError>{
         return new Observable <ResponseDefaultError>(objerver =>{
-            fetch("https://localhost:7235/control-biblioteca/editorial"+ `/${id}`,{
+            fetch(`${textAPI.localhost}/control-biblioteca/editorial`+ `/${id}`,{
                 method: "PUT",
                 headers: {
                     'Content-Type': 'application/json',
@@ -53,7 +57,7 @@ class bookEditorialService{
 
     deleteEditorialDelete(id:string): Observable<ResponseDefaultError>{
         return new Observable <ResponseDefaultError>(objerver =>{
-            fetch("https://localhost:7235/control-biblioteca/editorial"+ `/${id}`,{
+            fetch(`${textAPI.localhost}/control-biblioteca/editorial`+ `/${id}`,{
                 method: "DELETE",
             })
             .then(response => response.json())
